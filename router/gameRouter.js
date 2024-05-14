@@ -14,14 +14,15 @@ router.get("/", async (requset , response) => {
 } )
 
 router.post("/" , async (request , response ) => {
-    const { name, price } = request.body
+    const { name, price , photo} = request.body
     try {
         const newGame = new GamesInfo( {
             name: name, 
-            price: price
+            price: price,
+            photo:photo
         } )
         await newGame.save();
-        response.json({message: "Ok"})
+        response.json({message: "تمت اضافة اللعبة بنجاح"})
     }
     catch (error) {response.json({message: error.message})}
 });
