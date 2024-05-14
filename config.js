@@ -1,0 +1,1 @@
+export const mongoDb = "mongodb+srv://suqAlnuqat:2wcuc2AEFm7pGRTL@suqalnuqat.opjym2x.mongodb.net/?retryWrites=true&w=majority&appName=suqAlnuqat"
