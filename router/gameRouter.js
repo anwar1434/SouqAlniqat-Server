@@ -34,7 +34,7 @@ router.put("/:id" , async  (request , response) => {
         const updateStudent = await GamesInfo.findByIdAndUpdate( id, {  name,  price , photo  } ).exec();
         return response.status(200).json({message: "تم تحديث بيانات اللعبة بنجاح"})
     }
-    catch (error){response.status(500).json({"حدث خطأ الرجاء المحاولة لاحقا"})}
+    catch (error){response.status(500).json({message: "حدث خطأ الرجاء المحاولة لاحقا"})}
 })
 
 router.delete("/:id" , async (request , response) => {
