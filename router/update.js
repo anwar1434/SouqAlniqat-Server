@@ -4,10 +4,10 @@ import { GamesInfo } from "../models/game.js"
 const router = express.Router()
 
 router.post("/:id" , async  (request , response) => {
-    const { name, points } = request.body
-    const {id} = request.params
+    const { name, points , secretNumber , phoneNumber } = request.body
+    const { id } = request.params
     try {
-        const updateStudent = await StudentInfo.findByIdAndUpdate( id, {  name,  points } ).exec();
+        const updateStudent = await StudentInfo.findByIdAndUpdate( id, {  name,  points , secretNumber  , phoneNumber} ).exec();
         return response.status(200).json({message: "تم تحديث بيانات الطالب بنجاح"})
     }
     catch (error){response.json({message:error.message})}

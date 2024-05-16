@@ -3,8 +3,7 @@ import mongoose, { Types } from "mongoose";
 const studentScema = mongoose.Schema( {
     name: {
         type: String,
-        trim:true
-    },
+        trim:true },
     points: Number,
     secretNumber: Number,
     phoneNumber: Number,
