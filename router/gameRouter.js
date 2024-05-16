@@ -25,13 +25,22 @@ router.post("/" , async (request , response ) => {
         response.json({message: "تمت اضافة اللعبة بنجاح"})
     }
     catch (error) {response.json({message: error.message})}
-});
+} );
+
+router.get("/:id" , async (request , response) => {
+    const { id } = request.params;
+    try {
+        const result = await GamesInfo.findById( id )
+        return response.status( 200 ).json( { result } );
+    }
+    catch(error){response.status(500).json({message: "يوجد خطأ"})}
+} );
 
 router.put("/:id" , async  (request , response) => {
     const { name, price , photo } = request.body
     const { id } = request.params
     try {
-        const updateStudent = await GamesInfo.findByIdAndUpdate( id, {  name,  price , photo  } ).exec();
+        const updateGame = await GamesInfo.findByIdAndUpdate( id, {  name,  price , photo  } ).exec();
         return response.status(200).json({message: "تم تحديث بيانات اللعبة بنجاح"})
     }
     catch (error){response.status(500).json({message: "حدث خطأ الرجاء المحاولة لاحقا"})}
