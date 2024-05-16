@@ -3,6 +3,7 @@ import { StudentInfo } from "../models/student.js";
 
 const router = express.Router()
 
+
 router.put('/:id' , async (request, response) => {
     const { id } = request.params
     const { pointsToSubtract } = request.body;

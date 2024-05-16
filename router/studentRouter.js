@@ -23,11 +23,11 @@ router.get("/:id" , async (request , response) => {
 } );
 
 router.post("/", async (request, response) => {
-    const { name, points , setSecretNumber , phoneNumber} = request.body;
+    const { name, points , secretNumber , phoneNumber} = request.body;
     const newStudent = new StudentInfo({
         name: name,
         points: points,
-        secretNumber: setSecretNumber,
+        secretNumber: secretNumber,
         phoneNumber:phoneNumber
 });
     try {
@@ -35,7 +35,6 @@ router.post("/", async (request, response) => {
         response.status(200).send("تمت إضافة الطالب  بنجاح")}
     catch ( error ) { response.status( 500 ).send( error.message ) }
 } );
-
 
 router.put("/:id" , async (request , response) => {
     try {
@@ -53,7 +52,6 @@ router.put("/:id" , async (request , response) => {
     }
     catch (error) { response.json({message: "error"})}
 } )
-
 
 router.delete("/:id" , async (request , response) => {
     try { 

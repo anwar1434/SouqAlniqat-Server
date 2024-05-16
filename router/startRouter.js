@@ -13,7 +13,6 @@ router.post("/" , async (request , response ) => {
     catch (error) {response.status(500).json({message: error.message})}
 } )
 
-
 router.get("/:id" , async (request , response) => {
     const { id } = request.params;
     try {
@@ -23,12 +22,9 @@ router.get("/:id" , async (request , response) => {
     catch(error){response.status(500).json({message: "يوجد خطأ"})}
 } );
 
-
-
 router.put("/:id" , async (request , response) => {
     const { id } = request.params;
     const { newList , newpoints } = request.body;
-
     try {
         const student = await StudentInfo.findByIdAndUpdate( id, { choices: newList  }, { new: true } );
         
