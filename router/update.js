@@ -4,7 +4,7 @@ import { GamesInfo } from "../models/game.js"
 const router = express.Router()
 
 router.post("/:id" , async  (request , response) => {
-    const { name, points, secretcode } = request.body
+    const { name, points } = request.body
     const {id} = request.params
     try {
         const updateStudent = StudentInfo.findByIdAndUpdate( id, {  name,  points } ).exec();
