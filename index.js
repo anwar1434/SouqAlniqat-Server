@@ -9,6 +9,7 @@ import startRouter from "./router/startRouter.js"
 import pointsRouter from "./router/pointsRouter.js"
 import upload from "./router/upload.js"
 import update from "./router/update.js"
+import scerch from "./router/scerch.js"
 
 
 
@@ -27,6 +28,7 @@ app.use( "/start", startRouter );
 app.use( "/points", pointsRouter );
 app.use( "/upload", upload );
 app.use( "/update", update );
+app.use( "/scerch", scerch );
 
 
 mongoose.connect( mongoDb )
