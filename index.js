@@ -9,20 +9,12 @@ import startRouter from "./router/startRouter.js"
 import pointsRouter from "./router/pointsRouter.js"
 import upload from "./router/upload.js"
 import update from "./router/update.js"
-import add from "./router/add.js"
 
-import path from "path"
-import { fileURLToPath } from "url";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname( __filename );
+
 
 import cors from "cors"
 
 const app = express()
-
-// static Folder
-app.use(express.static(path.join(__dirname , "images")))
-
 
 const port = 5000
 app.use(cors())
@@ -35,9 +27,6 @@ app.use( "/start", startRouter );
 app.use( "/points", pointsRouter );
 app.use( "/upload", upload );
 app.use( "/update", update );
-app.use( "/add", add );
-
-
 
 
 mongoose.connect( mongoDb )
