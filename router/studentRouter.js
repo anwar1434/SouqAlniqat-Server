@@ -23,12 +23,12 @@ router.get("/:id" , async (request , response) => {
 } );
 
 router.post("/", async (request, response) => {
-    const { name, points , secret , phone} = request.body;
+    const { name, points , setSecretNumber , phoneNumber} = request.body;
     const newStudent = new StudentInfo({
         name: name,
         points: points,
-        secretNumber: secret,
-        phoneNumber:phone
+        secretNumber: setSecretNumber,
+        phoneNumber:phoneNumber
 });
     try {
         await newStudent.save();
