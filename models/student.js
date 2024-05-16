@@ -6,6 +6,8 @@ const studentScema = mongoose.Schema( {
         trim:true
     },
     points: Number,
+    secretNumber: Number,
+    phoneNumber: Number,
     choices: [[String , Number]]
 } );
 
