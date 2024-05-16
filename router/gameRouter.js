@@ -31,7 +31,7 @@ router.put("/:id" , async  (request , response) => {
     const { name, price , photo } = request.body
     const { id } = request.params
     try {
-        const updateStudent = await StudentInfo.findByIdAndUpdate( id, {  name,  price , photo  } ).exec();
+        const updateStudent = await GamesInfo.findByIdAndUpdate( id, {  name,  price , photo  } ).exec();
         return response.status(200).json({message: "تم تحديث بيانات اللعبة بنجاح"})
     }
     catch (error){response.status(500).json({"حدث خطأ الرجاء المحاولة لاحقا"})}
