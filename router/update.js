@@ -1,6 +1,7 @@
 import express  from "express"
 import { StudentInfo } from "../models/student.js"; 
 import { GamesInfo } from "../models/game.js"
+const router = express.Router()
 
 router.post("/:id" , async  (request , response) => {
     const { name, points, secretcode } = request.body
@@ -13,10 +14,4 @@ router.post("/:id" , async  (request , response) => {
     catch (error){response.json({message:error.message})}
 })
 
-
-
-
-
-
-
-const router = express.Router()
+export default router;
