@@ -8,6 +8,7 @@ import gameRouter from "./router/gameRouter.js"
 import startRouter from "./router/startRouter.js"
 import pointsRouter from "./router/pointsRouter.js"
 import upload from "./router/upload.js"
+import update from "./router/update.js"
 
 import path from "path"
 import { fileURLToPath } from "url";
@@ -32,6 +33,7 @@ app.use( "/game", gameRouter );
 app.use( "/start", startRouter );
 app.use( "/points", pointsRouter );
 app.use( "/upload", upload );
+app.use( "/update", update );
 
 
 
