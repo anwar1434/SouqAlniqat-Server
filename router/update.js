@@ -7,6 +7,7 @@ router.post("/:id" , async  (request , response) => {
     const {id} = request.params
     try {
         const updateStudent = StudentInfo.findByIdAndUpdate( id, { name: name, points: points } );
+        await updateStudent.save();
         return response.status(200).json({message: "تم تحديث بيانات الطالب بنجاح"})
     }
     catch (error){response.json({message:error.message})}
