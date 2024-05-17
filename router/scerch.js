@@ -3,7 +3,7 @@ import { StudentInfo } from "../models/student.js";
 
 const router = express.Router();
 
-router.get("/" , async (request , response) => {
+router.post("/" , async (request , response) => {
     const { name } = request.body;
     try {
         const result = await StudentInfo.find( name )

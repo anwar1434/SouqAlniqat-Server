@@ -5,8 +5,8 @@ const router = express.Router()
 
 router.post("/" , async (request , response ) => {
     try {
-        const { name } = request.body
-        const result = await StudentInfo.findOne( { name: name } );
+        const { code } = request.body
+        const result = await StudentInfo.findOne( { code: code } );
         if ( !result || result.length == 0 ) { return response.status(404).json( { message: "we have error" } ) }
         return response.status( 200 ).json( { message: "true" , id: result._id } )
     }
