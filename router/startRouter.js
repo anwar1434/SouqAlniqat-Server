@@ -10,7 +10,7 @@ router.post("/" , async (request , response ) => {
         if ( !result || result.length == 0 ) { return response.status(404).json( { message: "we have error" } ) }
         return response.status( 200 ).json( { message: "true" , id: result._id } )
     }
-    catch (error) {response.status(500).json({message: error.message})}
+    catch ( error ) { response.status( 500 ).json( { message: "الاسم غير موجدود الرجاء التأكد من الاسم ثم اعادة المحاولة" } )}
 } )
 
 router.get("/:id" , async (request , response) => {

@@ -44,7 +44,7 @@ router.put("/:id" , async (request , response) => {
     
         const result = await StudentInfo.findById( id )
         if (result.points < gamePrice) {
-            return response.status(201).json({ message: "نقاطك غير كافية لشراء هذه اللعبة" }); 
+            return response.status(201).json({ notHavePoints: "نقاطك غير كافية لشراء هذه اللعبة" }); 
         }
         result.choices.push( [game , gamePrice] )
         await result.save()
