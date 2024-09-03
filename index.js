@@ -6,10 +6,8 @@ import mongoose from "mongoose"
 import studentRouter from "./router/studentRouter.js"
 import gameRouter from "./router/gameRouter.js"
 import startRouter from "./router/startRouter.js"
-import pointsRouter from "./router/pointsRouter.js"
-import upload from "./router/upload.js"
-import update from "./router/update.js"
 import total from "./router/total.js"
+import procedures from "./router/procedures.js"
 
 import cors from "cors"
 
@@ -20,12 +18,10 @@ app.use(cors())
 app.use( express.json() )
 
 
-app.use( "/student", studentRouter );
-app.use( "/game", gameRouter );
-app.use( "/start", startRouter );
-app.use( "/points", pointsRouter );
-app.use( "/upload", upload );
-app.use( "/update", update );
+app.use( "/student", studentRouter ); // Students Info
+app.use( "/game", gameRouter ); // Games Info
+app.use( "/start", startRouter ); // LogIn
+app.use("/procedures" , procedures) // Add & Delete Order
 app.use( "/total", total );
 
 

@@ -5,7 +5,12 @@ const studentScema = mongoose.Schema( {
     points: Number,
     secretNumber: Number,
     phoneNumber: Number,
-    choices: [[String , Number]]
+    choices: [
+        {
+            name: String,
+            price: Number
+        }
+    ]
 } );
 
 export const StudentInfo = mongoose.model( "StudentInfo", studentScema );
