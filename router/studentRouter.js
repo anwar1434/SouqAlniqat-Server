@@ -14,15 +14,38 @@ router.get( "/", async ( request, response ) =>
                 student.totalPoints = 0;
             }
             const list = student.choices
-            for (let i = 0; i < list.length; i++) {
-                student.totalPoints += list[i].price 
+            for ( let i = 0; i < list.length; i++ )
+            {
+                student.totalPoints += list[i].price
             }
             student.totalPoints += student.points
-        })
-        
-        return response.status( 200 ).json( {
-            data: allStudents
         } )
+        const studentsWithChoices = allStudents.map( student =>
+        {
+            const listChoice = student.choices.reduce( ( acc, choice ) =>
+            {
+                const existingChoice = acc.find( item => item.name === choice.name );
+                if ( existingChoice )
+                {
+                    existingChoice.quantity += 1;
+                } else
+                {
+                    acc.push( { name: choice.name, price: choice.price, quantity: 1 } );
+                }
+                return acc;
+            }, [] );
+
+            return {
+                ...student.toObject(), // تحويل الطالب إلى كائن عادي
+                listChoice // إضافة listChoice إلى كل طالب
+            };
+        } );
+
+        // إرسال الاستجابة مع البيانات المنسقة
+        response.status( 200 ).json( {
+            success: true,
+            data: studentsWithChoices
+        } );
     }
     catch ( error ) { response.status( 500 ).send( error.message ) }
 } )
