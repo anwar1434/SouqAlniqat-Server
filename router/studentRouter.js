@@ -7,6 +7,19 @@ router.get( "/", async ( request, response ) =>
     try
     {
         const allStudents = await StudentInfo.find( {} )
+        allStudents.map( ( student ) =>
+        {
+            if ( !student.totalPoints )
+            {
+                student.totalPoints = 0;
+            }
+            const list = student.choices
+            for (let i = 0; i < list.length; i++) {
+                student.totalPoints += list[i].price 
+            }
+            student.totalPoints += student.points
+        })
+        
         return response.status( 200 ).json( {
             data: allStudents
         } )
